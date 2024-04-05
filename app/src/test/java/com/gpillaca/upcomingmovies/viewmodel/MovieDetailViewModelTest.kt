@@ -2,16 +2,15 @@ package com.gpillaca.upcomingmovies.viewmodel
 
 import app.cash.turbine.test
 import com.gpillaca.upcomingmovies.CoroutineTestRule
-import com.gpillaca.upcomingmovies.movieStub
+import com.gpillaca.upcomingmovies.stubs.movieStub
 import com.gpillaca.upcomingmovies.ui.detail.MovieDetailViewModel
 import com.gpillaca.upcomingmovies.ui.detail.MovieDetailViewModel.UiState
-import com.gpillaca.upcomingmovies.usecase.FindMovieUseCase
-import com.gpillaca.upcomingmovies.usecase.SwitchMovieFavoriteUseCase
+import com.gpillaca.upcomingmovies.usecases.FindMovieUseCase
+import com.gpillaca.upcomingmovies.usecases.SwitchMovieFavoriteUseCase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
-import org.junit.Assert
 import org.junit.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
