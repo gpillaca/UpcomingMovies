@@ -1,5 +1,5 @@
 # UpcomingMovies App
-Upcoming Movies App written in Kotlin using the TMDD API.
+Upcoming Movies App written in Kotlin using the TMDB API.
 
 > [!WARNING]  
 > - Open `.gitignote` and uncommented `local.properties`.
