@@ -6,4 +6,5 @@ plugins {
     alias(libs.plugins.firebase.crashlytics) apply false
     alias(libs.plugins.navigation.safeargs) apply false
     alias(libs.plugins.dagger.hilt.android) apply false
+    alias(libs.plugins.jetbrainsKotlinJvm) apply false
 }

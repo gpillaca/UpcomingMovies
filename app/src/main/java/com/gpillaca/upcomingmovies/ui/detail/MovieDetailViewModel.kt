@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.gpillaca.upcomingmovies.di.MovieId
 import com.gpillaca.upcomingmovies.domain.Movie
-import com.gpillaca.upcomingmovies.usecase.FindMovieUseCase
-import com.gpillaca.upcomingmovies.usecase.SwitchMovieFavoriteUseCase
+import com.gpillaca.upcomingmovies.usecases.FindMovieUseCase
+import com.gpillaca.upcomingmovies.usecases.SwitchMovieFavoriteUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

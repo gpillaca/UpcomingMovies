@@ -3,6 +3,7 @@ package com.gpillaca.upcomingmovies.ui.common
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
+import com.gpillaca.upcomingmovies.data.InternetConnectionChecker
 
 @Suppress("DEPRECATION")
 class AppInternetConnectionChecker(private val context: Context) : InternetConnectionChecker {

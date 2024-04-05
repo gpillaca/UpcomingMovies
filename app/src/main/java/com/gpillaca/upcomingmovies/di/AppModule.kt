@@ -4,7 +4,7 @@ import android.app.Application
 import android.content.Context
 import androidx.room.Room
 import com.gpillaca.upcomingmovies.BuildConfig
-import com.gpillaca.upcomingmovies.domain.mapper.MovieMapper
+import com.gpillaca.upcomingmovies.mappers.MovieMapper
 import com.gpillaca.upcomingmovies.data.PermissionChecker
 import com.gpillaca.upcomingmovies.data.datasource.LocationDataSource
 import com.gpillaca.upcomingmovies.data.datasource.MovieLocalDataSource
@@ -16,7 +16,7 @@ import com.gpillaca.upcomingmovies.framework.database.MovieRoomDataSource
 import com.gpillaca.upcomingmovies.framework.server.MovieServerDataSource
 import com.gpillaca.upcomingmovies.framework.server.RemoteService
 import com.gpillaca.upcomingmovies.ui.common.AppInternetConnectionChecker
-import com.gpillaca.upcomingmovies.ui.common.InternetConnectionChecker
+import com.gpillaca.upcomingmovies.data.InternetConnectionChecker
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -91,7 +91,7 @@ object AppModule {
 abstract class AppDataModule {
 
     @Binds
-    abstract fun bindLocalDataSource(localDataSource: MovieRoomDataSource):  MovieLocalDataSource
+    abstract fun bindLocalDataSource(localDataSource: MovieRoomDataSource): MovieLocalDataSource
 
     @Binds
     abstract fun bindRemoteDataSource(remoteDataSource: MovieServerDataSource): MovieRemoteDataSource
