@@ -2,11 +2,11 @@ package com.gpillaca.upcomingmovies.ui.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.gpillaca.upcomingmovies.domain.common.Error
+import com.gpillaca.upcomingmovies.framework.toError
 import com.gpillaca.upcomingmovies.domain.Movie
-import com.gpillaca.upcomingmovies.domain.common.toError
-import com.gpillaca.upcomingmovies.usecase.GetPopularMoviesUseCase
-import com.gpillaca.upcomingmovies.usecase.RequestPopularMoviesUseCase
+import com.gpillaca.upcomingmovies.domain.common.Error
+import com.gpillaca.upcomingmovies.usecases.GetPopularMoviesUseCase
+import com.gpillaca.upcomingmovies.usecases.RequestPopularMoviesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

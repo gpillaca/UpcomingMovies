@@ -3,11 +3,11 @@ package com.gpillaca.upcomingmovies.viewmodel
 import app.cash.turbine.test
 import com.gpillaca.upcomingmovies.CoroutineTestRule
 import com.gpillaca.upcomingmovies.domain.common.Either
-import com.gpillaca.upcomingmovies.movieStub
+import com.gpillaca.upcomingmovies.stubs.movieStub
 import com.gpillaca.upcomingmovies.ui.main.MainViewModel
 import com.gpillaca.upcomingmovies.ui.main.MainViewModel.UiState
-import com.gpillaca.upcomingmovies.usecase.GetPopularMoviesUseCase
-import com.gpillaca.upcomingmovies.usecase.RequestPopularMoviesUseCase
+import com.gpillaca.upcomingmovies.usecases.GetPopularMoviesUseCase
+import com.gpillaca.upcomingmovies.usecases.RequestPopularMoviesUseCase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.toList

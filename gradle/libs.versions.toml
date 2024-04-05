@@ -13,6 +13,7 @@ android-material = "1.11.0"
 android-play-services-location = "21.2.0"
 okhttp3-logging-interceptor = "4.11.0"
 retrofit2 = "2.9.0"
+javax-inject = "1"
 hilt-android = "2.46.1"
 glide = "4.15.1"
 firebase-boom = "32.8.0"
@@ -33,6 +34,7 @@ google-services-plugin = "4.4.1"
 firebase-crashlytics-plugin = "2.9.9"
 navigation-safeargs-plugin = "2.7.7"
 dagger-hilt-android-plugin = "2.46.1"
+jetbrains-kotlin-jvm = "1.9.10"
 
 [libraries]
 android-material = { group = "com.google.android.material", name = "material", version.ref = "android-material" }
@@ -61,6 +63,7 @@ okhttp3-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-
 retrofit2 = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit2" }
 retrofit2-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit2" }
 
+javax-inject = { group =  "javax.inject", name = "javax.inject", version.ref = "javax-inject"}
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt-android" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt-android" }
 hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt-android"}
@@ -86,6 +89,7 @@ google-services = { id = "com.google.gms.google-services", version.ref = "google
 firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebase-crashlytics-plugin" }
 navigation-safeargs = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navigation-safeargs-plugin" }
 dagger-hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "dagger-hilt-android-plugin" }
+jetbrainsKotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrains-kotlin-jvm" }
 
 [bundles]
 androidx-room = ["androidx-room-runtime", "androidx-room-ktx"]
