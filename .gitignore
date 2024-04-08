@@ -1,5 +1,39 @@
+# built application files
+*.apk
+*.ap_
+
+# Intellij project files
 *.iml
-.gradle
+*.ipr
+*.iws
+.idea/
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+
+# Android Studio
+.gradle/
+/local.properties
+.DS_Store
+/build
+/*/out
+/*/build
+/*/*/build
+/*/*/production
+/*/production
+*.iws
+*.ipr
+*~
+*.swp
+*.jks
+
 .idea/
 /.idea/caches
 /.idea/libraries
