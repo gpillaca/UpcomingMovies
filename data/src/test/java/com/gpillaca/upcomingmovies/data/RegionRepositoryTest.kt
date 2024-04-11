@@ -2,8 +2,8 @@ package com.gpillaca.upcomingmovies.data
 
 import com.gpillaca.upcomingmovies.data.PermissionChecker.Permission.COARSE_LOCATION
 import com.gpillaca.upcomingmovies.data.datasource.LocationDataSource
-import com.gpillaca.upcomingmovies.data.stubs.DEFAULT_REGION
-import com.gpillaca.upcomingmovies.data.stubs.ES_REGION
+import com.gpillaca.upcomingmovies.data.stubs.DEFAULT_LANGUAGE
+import com.gpillaca.upcomingmovies.data.stubs.ES_LANGUAGE
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -36,21 +36,21 @@ class RegionRepositoryTest {
     }
 
     @Test
-    fun `Returns default region when coarse permission not granted`(): Unit = runBlocking {
+    fun `Returns default language when coarse permission not granted`(): Unit = runBlocking {
         whenever(permissionChecker.check(COARSE_LOCATION)).thenReturn(false)
-        val region = regionRepository.findLastRegion()
+        val language = regionRepository.findLastLanguage()
 
-        assertEquals(DEFAULT_REGION, region)
+        assertEquals(DEFAULT_LANGUAGE, language)
     }
 
     @Test
-    fun `Returns region from location data source when permission granted`(): Unit = runBlocking {
+    fun `Returns language from location data source when permission granted`(): Unit = runBlocking {
         whenever(permissionChecker.check(COARSE_LOCATION)).thenReturn(true)
         whenever(internetConnectionChecker.isInternetAvailable()).thenReturn(true)
-        whenever(locationDataSource.findLastRegion()).thenReturn(ES_REGION)
+        whenever(locationDataSource.findLastLanguage()).thenReturn(ES_LANGUAGE)
 
-        val region = regionRepository.findLastRegion()
+        val language = regionRepository.findLastLanguage()
 
-        assertEquals(ES_REGION, region)
+        assertEquals(ES_LANGUAGE, language)
     }
 }
