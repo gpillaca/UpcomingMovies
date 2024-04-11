@@ -21,7 +21,7 @@ class MovieRepository @Inject constructor(
 
     suspend fun requestPopularMovies(): Either<Error?, Unit> {
         movieRemoteDataSource
-            .findPopularMovies(regionRepository.findLastRegion())
+            .findPopularMovies(regionRepository.findLastLanguage())
             .onRight { movies ->
                 saveLocalMovies(movies)
             }

@@ -16,15 +16,13 @@ import javax.inject.Inject
 import kotlin.coroutines.resume
 
 class PlayServicesLocationDataSource @Inject constructor(
-    application: Application
+    private val application: Application
 ) : LocationDataSource {
 
     private val fusedLocationClient: FusedLocationProviderClient =
         LocationServices.getFusedLocationProviderClient(application)
 
-    private val geocoder = Geocoder(application)
-
-    override suspend fun findLastRegion(): String? = findLastLocation().toRegion()
+    override suspend fun findLastLanguage(): String? = findLastLocation().toLanguage()
 
     @SuppressLint("MissingPermission")
     private suspend fun findLastLocation(): Location =
@@ -35,11 +33,13 @@ class PlayServicesLocationDataSource @Inject constructor(
                 }
         }
 
-    private suspend fun Location?.toRegion(): String? {
+    private suspend fun Location?.toLanguage(): String? {
         val addresses = this?.let {
             getFromLocationCompat(latitude, longitude, 1)
         }
-        return addresses?.firstOrNull()?.countryCode
+        return addresses?.firstOrNull()?.locale?.run {
+            "${language}-${country}"
+        }.toString()
     }
 
     @Suppress("DEPRECATION")
@@ -48,6 +48,8 @@ class PlayServicesLocationDataSource @Inject constructor(
         @FloatRange(from = -180.0, to = 180.0) longitude: Double,
         @IntRange maxResults: Int
     ): List<Address> = suspendCancellableCoroutine { continuation ->
+        val geocoder = Geocoder(application)
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             geocoder.getFromLocation(latitude, longitude, maxResults) {
                 continuation.resume(it)

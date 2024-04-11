@@ -2,6 +2,8 @@ package com.gpillaca.upcomingmovies.data
 
 import com.gpillaca.upcomingmovies.data.datasource.LocationDataSource
 import com.gpillaca.upcomingmovies.data.PermissionChecker.Permission.COARSE_LOCATION
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 /**
@@ -14,14 +16,14 @@ class RegionRepository @Inject constructor(
 ) {
 
     companion object {
-        private const val DEFAULT_REGION = "US"
+        private const val DEFAULT_LANGUAGE = "en-US"
     }
 
-    suspend fun findLastRegion(): String {
-        return if (permissionChecker.check(COARSE_LOCATION) && internetConnectionChecker.isInternetAvailable()) {
-            locationDataSource.findLastRegion() ?: DEFAULT_REGION
+    suspend fun findLastLanguage(): String = withContext(Dispatchers.IO) {
+        if (permissionChecker.check(COARSE_LOCATION) && internetConnectionChecker.isInternetAvailable()) {
+            locationDataSource.findLastLanguage() ?: DEFAULT_LANGUAGE
         } else {
-            DEFAULT_REGION
+            DEFAULT_LANGUAGE
         }
     }
 }
