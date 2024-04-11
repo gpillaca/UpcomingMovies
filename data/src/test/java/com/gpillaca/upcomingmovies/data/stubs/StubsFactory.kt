@@ -2,8 +2,8 @@ package com.gpillaca.upcomingmovies.data.stubs
 
 import com.gpillaca.upcomingmovies.domain.Movie
 
-const val DEFAULT_REGION = "US"
-const val ES_REGION = "ES"
+const val DEFAULT_LANGUAGE = "en-US"
+const val ES_LANGUAGE = "es-ES"
 
 val movieStub = Movie(
     1,

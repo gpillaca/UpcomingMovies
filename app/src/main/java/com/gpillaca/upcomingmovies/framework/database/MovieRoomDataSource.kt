@@ -20,7 +20,22 @@ class MovieRoomDataSource @Inject constructor(
     }
 
     override suspend fun save(movies: List<Movie>): Either<Error, Unit> = catch {
-        movieDao.insertMovies(movieMapper.fromDomainToMoviesDatabase(movies))
+        if (isEmpty()) {
+            movieDao.insertMovies(movieMapper.fromDomainToMoviesDatabase(movies))
+        } else {
+            var localMovies: List<MovieDB> = movieDao.getAllMovies()
+            var remoteMovies = movieMapper.fromDomainToMoviesDatabase(movies)
+
+            if (localMovies != remoteMovies) {
+                remoteMovies = remoteMovies.map { remoteMovie ->
+                    localMovies.first { remoteMovie.id == it.id }.let {
+                        remoteMovie.copy(favorite = it.favorite)
+                    }
+                }
+            }
+            movieDao.insertMovies(remoteMovies)
+        }
+
     }
 
     override suspend fun isEmpty(): Boolean = movieDao.movieCount() == 0

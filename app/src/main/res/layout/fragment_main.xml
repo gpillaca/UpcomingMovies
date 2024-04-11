@@ -18,8 +18,8 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:title="@string/app_name"
-            app:title="@string/app_name"/>
+            android:title="@string/popular_movies"
+            app:title="@string/popular_movies"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 

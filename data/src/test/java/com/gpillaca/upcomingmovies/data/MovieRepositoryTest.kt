@@ -2,7 +2,7 @@ package com.gpillaca.upcomingmovies.data
 
 import com.gpillaca.upcomingmovies.data.datasource.MovieLocalDataSource
 import com.gpillaca.upcomingmovies.data.datasource.MovieRemoteDataSource
-import com.gpillaca.upcomingmovies.data.stubs.DEFAULT_REGION
+import com.gpillaca.upcomingmovies.data.stubs.DEFAULT_LANGUAGE
 import com.gpillaca.upcomingmovies.data.stubs.movieStub
 import com.gpillaca.upcomingmovies.domain.common.right
 import kotlinx.coroutines.flow.flowOf
@@ -56,7 +56,7 @@ class MovieRepositoryTest {
     @Test
     fun `Popular movies are saved to local data source when it's empty`(): Unit = runBlocking {
         val movies = listOf(movieStub.copy(id = 5))
-        whenever(regionRepository.findLastRegion()).thenReturn(DEFAULT_REGION)
+        whenever(regionRepository.findLastLanguage()).thenReturn(DEFAULT_LANGUAGE)
         whenever(remoteDataSource.findPopularMovies(any())).thenReturn(movies.right())
         whenever(localDataSource.save(movies)).thenReturn(Unit.right())
 

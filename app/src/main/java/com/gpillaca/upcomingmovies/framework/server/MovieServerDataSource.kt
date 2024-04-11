@@ -15,8 +15,8 @@ class MovieServerDataSource @Inject constructor(
     private val remoteService: RemoteService
 ) : MovieRemoteDataSource {
 
-    override suspend fun findPopularMovies(region: String): Either<Error, List<Movie>> = catch {
-        val movieResponseList = remoteService.listPopularMovies(apiKey, region).results
+    override suspend fun findPopularMovies(language: String): Either<Error, List<Movie>> = catch {
+        val movieResponseList = remoteService.listPopularMovies(apiKey, language).results
         movieMapper.fromResponseToMovieListDomain(movieResponseList)
     }
 
